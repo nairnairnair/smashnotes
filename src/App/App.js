@@ -1,28 +1,54 @@
 import './App.css';
 import React, { Component } from 'react'
-import CharacterData from '../CharacterData/CharacterData.js'
+import logo from '../Assets/Images/logo.png'
+// import CharacterData from '../CharacterData/CharacterData.js'
 import { Routes, Route, Link } from "react-router-dom"
-import Form from '../Form/Form.js'
-import Card from '../Card/Card.js'
-import Note from '../Note/Note.js'
+import dropdownData from '../CharacterData/dropdownData';
+import CharacterPage from '../CharacterPage/CharacterPage';
+// import Form from '../Form/Form.js'
+// import Card from '../Card/Card.js'
+// import Note from '../Note/Note.js'
 
 class App extends Component {
   constructor() {
     super()
     this.state =  {
+      chosenCharacterID: ''
     }
   }
+
+  handleSelect = (event) => {
+    this.setState({chosenCharacterID: event.target.value});
+    console.log(this.state.chosenCharacterID)
+}
+
+formattedDropdownData = dropdownData.map(listItem => {
+  return (
+  <option 
+      key={listItem.value} 
+      value={listItem.value} 
+      className="dropdown-item">
+      {listItem.name}
+  </option>
+  )
+})
+
   render = () => {
     return (
     <main className='main'>
-      <img src='../Assets/Images/logo.png' alt='SMASHNOTES'></img>
-      <h1>SMASHNOTES</h1>
-      <p>sup</p>
+      <img className='logo' src={logo} alt='SMASHNOTES'/>
         <form>
-        <CharacterData></CharacterData>
-        <Form></Form>
-        <Card></Card>
-        <Note></Note>
+          <select onChange={(event) => this.handleSelect(event)}>
+            <option disabled hidden>CHOOSE YOUR CHARACTER</option>
+            {this.formattedDropdownData}
+          </select>
+          <Link to='/${this.state.chosenCharacterID}'>
+            <button>Go!</button>
+          </Link>
+          <Routes>
+            <Route exact path='/' element={<App/>}/>
+            <Route exact path='/${this.state.chosenCharacterID}' element={<CharacterPage/>}/>
+          </Routes>
         </form>
     </main>) 
   }
