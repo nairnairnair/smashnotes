@@ -1,13 +1,13 @@
-const getSingleCharacterData = (id) => {
-    return fetch(`http://smashlounge.com/api/chars/${id}`)
-            .then(rsp => {
-                if (!rsp.ok) {
-                  throw new Error('Unable to access the server.  Please try again!')
-                } else {
-                    return rsp.json()
-                    }           
-                })
-            .then()
+
+const getCharacterData = () => {
+fetch('https://fe-cors-proxy.herokuapp.com', {
+  headers: {
+    "Target-URL": "http://smashlounge.com/api/chars/all"
+  }
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error))
 }
 
-export default getSingleCharacterData
+export default getCharacterData
