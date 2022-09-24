@@ -1,10 +1,11 @@
 import './App.css';
 import React, { Component } from 'react'
 import logo from '../Assets/Images/logo.png'
-// import CharacterData from '../CharacterData/CharacterData.js'
+import getCharacterData from '../APICalls/APICalls';
 import { Routes, Route, Link } from "react-router-dom"
 import dropdownData from '../CharacterData/dropdownData';
 import CharacterPage from '../CharacterPage/CharacterPage';
+// import CharacterData from '../CharacterData/CharacterData.js'
 // import Form from '../Form/Form.js'
 // import Card from '../Card/Card.js'
 // import Note from '../Note/Note.js'
@@ -16,6 +17,11 @@ class App extends Component {
       chosenCharacterID: ''
     }
   }
+
+  componentDidMount = () => {
+    getCharacterData()
+    console.log('it worked')
+  } 
 
   handleSelect = (event) => {
     this.setState({chosenCharacterID: event.target.value});
