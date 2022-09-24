@@ -18,7 +18,15 @@
 }
 
 .main {
-  height: max-content;
-  width: 100vh;
-  background-color: #151b22
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200vh;
+  width: 100vw;
+  background-color: #151b22;
+  color:slategray;
+}
+
+.logo {
+  width: 80vw
 }
