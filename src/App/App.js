@@ -6,9 +6,9 @@ import dropdownData from '../CharacterData/dropdownData';
 import CharacterPage from '../CharacterPage/CharacterPage';
 import { imageLinks } from '../Assets/images.js'
 // import CharacterData from '../CharacterData/CharacterData.js'
-// import Form from '../Form/Form.js'
+import FormComponent from '../Form/Form.js'
 // import Card from '../Card/Card.js'
-// import Notes from '../Note/Note.js'
+import Notes from '../Note/Note.js'
 
 class App extends Component {
   constructor() {
@@ -25,7 +25,6 @@ class App extends Component {
 
   //things to pass:
   //the object that pertains
-
 
   addNote = (newNote) => {
     this.setState({notes: [...this.state.notes, newNote]});
@@ -100,10 +99,16 @@ dataImageHelper = () => {
             <Route exact path='/' element={<App/>}/>
             <Route 
               exact path='/characters/:id' 
-              element={<CharacterPage 
-              chosenCharacterData={this.state.chosenCharacterData}
-              getImagePath={this.state.characterImage}/>}
-              addNote={this.addNote}/>
+              element={
+              <div>
+                <CharacterPage 
+                chosenCharacterData={this.state.chosenCharacterData}
+                getImagePath={this.state.characterImage}
+                />
+                <FormComponent charName={this.state.chosenCharacterData.name} addNote={this.addNote}/>
+                <Notes notes={this.state.notes}/>
+              </div>
+              }/>
           </Routes>
     </main>) 
   }

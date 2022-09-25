@@ -1,0 +1,8 @@
+.note-card {
+    box-sizing: border-box;
+    border: 3px solid #474A4D;
+    background-color: #787878;
+    color: #151b22;
+    border-radius: 15px;
+    margin-bottom: 1vh;
+}

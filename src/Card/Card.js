@@ -1,10 +1,11 @@
 import React from 'react'
 import './Card.css'
 
-const Card = () => {
+const Card = ({title, body, id}) => {
     return (
-        <div>
-
+        <div className="note-card">
+            <h3>{title}</h3>
+            <p>{body}</p>
         </div>
     )
 }
