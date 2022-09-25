@@ -28,7 +28,13 @@ class App extends Component {
 
   addNote = (newNote) => {
     this.setState({notes: [...this.state.notes, newNote]});
-}
+  }
+
+  deleteNote = (id) => {
+    console.log(id)
+    const filteredNotes = this.state.notes.filter((note) => note.id != id)
+    this.setState({notes: filteredNotes})
+  }
 
   getImagePath = () => {
     let image = this.state.allCharacterImages.find((link) => 
@@ -106,7 +112,7 @@ dataImageHelper = () => {
                 getImagePath={this.state.characterImage}
                 />
                 <FormComponent charName={this.state.chosenCharacterData.name} addNote={this.addNote}/>
-                <Notes notes={this.state.notes}/>
+                <Notes notes={this.state.notes} deleteNote={this.deleteNote}/>
               </div>
               }/>
           </Routes>
