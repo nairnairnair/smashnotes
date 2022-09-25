@@ -3,12 +3,11 @@ import './Form.css';
 
 
 class FormComponent extends Component {
-    constructor({charName}){
+    constructor(){
         super()
         this.state = {
-            charName: charName,
             title: '',
-            body: '',
+            body: ''
         }
     }
 
@@ -21,16 +20,15 @@ class FormComponent extends Component {
         event.preventDefault()
         const newNote = {
             id: Date.now(),
-            title: this.state.title,
-            body: this.state.body
-        }
-        this.props.addNote(newNote)
+            ...this.state
+        } 
+    this.props.addNote(newNote)
     }
     
     render (){
         return (
             <div className="matchup-note-container">
-                <h2>Add {this.state.charName} Matchup Note:</h2>
+                <h2>Add {this.props.charName} Matchup Note:</h2>
                 <form className='char-input'>
                     <input 
                         className='note-title'
@@ -55,7 +53,7 @@ class FormComponent extends Component {
                         Submit
                     </button>
                 </form>
-                <h2>{this.state.charName} Matchup Notes:</h2>
+                <h2>{this.props.charName} Matchup Notes:</h2>
             </div>
         )
     }
