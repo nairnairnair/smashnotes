@@ -1,0 +1,19 @@
+.char-input, .matchup-note-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 85vw;
+}
+
+.note-title {
+    width: 60vw;
+    margin-bottom: 1vh;
+}
+
+.note-body {
+    width: 80vw;
+}
+
+.note-submit {
+    margin-top: 1vh;
+}
