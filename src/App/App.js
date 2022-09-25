@@ -5,9 +5,7 @@ import { Routes, Route, Link } from "react-router-dom"
 import dropdownData from '../CharacterData/dropdownData';
 import CharacterPage from '../CharacterPage/CharacterPage';
 import { imageLinks } from '../Assets/images.js'
-// import CharacterData from '../CharacterData/CharacterData.js'
 import FormComponent from '../Form/Form.js'
-// import Card from '../Card/Card.js'
 import Notes from '../Note/Note.js'
 
 class App extends Component {
@@ -111,8 +109,8 @@ dataImageHelper = () => {
                 chosenCharacterData={this.state.chosenCharacterData}
                 getImagePath={this.state.characterImage}
                 />
-                <FormComponent charName={this.state.chosenCharacterData.name} addNote={this.addNote}/>
-                <Notes notes={this.state.notes} deleteNote={this.deleteNote}/>
+                <FormComponent charName={this.state.chosenCharacterData.name} whichChar={this.state.chosenCharacterID} addNote={this.addNote}/>
+                <Notes notes={this.state.notes} deleteNote={this.deleteNote} currentWhichChar={this.state.chosenCharacterID}/>
               </div>
               }/>
           </Routes>
