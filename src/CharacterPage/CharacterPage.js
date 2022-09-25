@@ -1,9 +1,10 @@
 import React from 'react'
 import FormComponent from '../Form/Form.js' 
 import './CharacterPage.css'
+import Notes from '../Note/Note.js'
 // import { useParams } from 'react-router-dom'
 
-const CharacterPage = ({chosenCharacterData, getImagePath}) => {
+const CharacterPage = ({chosenCharacterData, getImagePath}, addNote) => {
 
     let walljumpStatus = ''
     const wallJumpConverter = () => {
@@ -27,7 +28,8 @@ const CharacterPage = ({chosenCharacterData, getImagePath}) => {
             <p className="fall-speed">Fall Speed: {chosenCharacterData.fallspeed} fastest</p>
             <p className="weight">Weight: {chosenCharacterData.weight} heaviest</p>
             <p className="walljump">Can Walljump: {walljumpStatus}</p>
-            <FormComponent charName={chosenCharacterData.name}/>
+            <FormComponent charName={chosenCharacterData.name} addNote={addNote}/>
+            <Notes/>
         </div>
     )
 }
