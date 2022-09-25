@@ -1,9 +1,20 @@
 import React from 'react'
 import './CharacterPage.css'
+// import { useParams } from 'react-router-dom'
 
-const CharacterPage = () => {
+const CharacterPage = ({getImagePath}) => {
+
+    // let { id } = useParams();
+
+    // useEffect(() => {
+    //     console.log(props)
+    // }, [])
+
     return (
-        <h1>Name</h1>
+        <div>
+            <h1>Name</h1>
+            <img src={getImagePath}/>
+        </div>
     )
 }
 
