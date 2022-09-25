@@ -17,9 +17,13 @@ class App extends Component {
       chosenCharacterID: '',
       characterImage: '',
       allCharacterData: [], 
+      chosenCharacterData: {},
       allCharacterImages: null
     }
   }
+
+  //things to pass:
+  //the object that pertains
 
   getImagePath = () => {
     let image = this.state.allCharacterImages.find((link) => 
@@ -57,6 +61,22 @@ formattedDropdownData = dropdownData.map(listItem => {
   )
 })
 
+getData = () => {
+  fetch('https://fe-cors-proxy.herokuapp.com', {
+  headers: {
+    "Target-URL": `http://smashlounge.com/api/chars/${this.state.chosenCharacterID}`
+  }
+
+})
+.then(response => response.json())
+.then((data) => {this.setState({chosenCharacterData: data})})
+}
+
+dataImageHelper = () => {
+  this.getImagePath()
+  this.getData()
+}
+
   render = () => {
     return (
     <main className='main'>
@@ -67,11 +87,11 @@ formattedDropdownData = dropdownData.map(listItem => {
             {this.formattedDropdownData}
           </select>
           <Link to={`/characters/${this.state.chosenCharacterID}`}>
-            <button onClick={this.getImagePath}>Go!</button>
+            <button onClick={this.dataImageHelper}>Go!</button>
           </Link>
           <Routes>
             <Route exact path='/' element={<App/>}/>
-            <Route exact path='/characters/:id' element={<CharacterPage props={this.state.chosenCharacterID} getImagePath={this.state.characterImage}/>}/>
+            <Route exact path='/characters/:id' element={<CharacterPage chosenCharacterData={this.state.chosenCharacterData} getImagePath={this.state.characterImage}/>}/>
           </Routes>
         </form>
     </main>) 
