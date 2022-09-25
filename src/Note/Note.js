@@ -2,7 +2,7 @@ import React from 'react'
 import './Note.css';
 import Card from '../Card/Card.js'
 
-const Notes = (({notes}) => {
+const Notes = (({notes, deleteNote}) => {
 
     const noteCards = notes.map((note) => {
         return (
@@ -10,7 +10,8 @@ const Notes = (({notes}) => {
                 title={note.title}
                 body={note.body}
                 id={note.id}
-                key={note.id}>
+                key={note.id}
+                deleteNote={deleteNote}>
             </Card>
         )
     })
