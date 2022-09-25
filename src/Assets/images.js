@@ -1,5 +1,5 @@
 const imageLinks = [
-    {name: 'Bowser', id: '1', image: 'https://mario.wiki.gallery/images/2/2a/Ssbmmario.jpg'},
+    {name: 'Bowser', id: '1', image: 'https://mario.wiki.gallery/images/7/72/Ssbmbowser.jpg'},
     {name: 'Captain Falcon', id: '2', image: 'https://mario.wiki.gallery/images/e/e4/Captain_Falcon_Melee_art.jpg'},
     {name: 'Donkey Kong', id: '3', image: 'https://mario.wiki.gallery/images/7/7f/Ssbmdonkeykong.jpg'},
     {name: 'Dr. Mario', id: '4', image: 'https://mario.wiki.gallery/images/b/b4/MeleeDr.Mario.jpg'},

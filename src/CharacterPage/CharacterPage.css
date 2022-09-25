@@ -1,0 +1,16 @@
+.char-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 85vw
+}
+
+.traits {
+    max-width: 85vw;
+}
+
+.char-header {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}

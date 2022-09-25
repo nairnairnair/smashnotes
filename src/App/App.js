@@ -89,11 +89,11 @@ dataImageHelper = () => {
           <Link to={`/characters/${this.state.chosenCharacterID}`}>
             <button onClick={this.dataImageHelper}>Go!</button>
           </Link>
-          <Routes>
+        </form>
+        <Routes>
             <Route exact path='/' element={<App/>}/>
             <Route exact path='/characters/:id' element={<CharacterPage chosenCharacterData={this.state.chosenCharacterData} getImagePath={this.state.characterImage}/>}/>
           </Routes>
-        </form>
     </main>) 
   }
 }

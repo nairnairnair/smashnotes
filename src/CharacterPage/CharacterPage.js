@@ -1,4 +1,5 @@
 import React from 'react'
+import FormComponent from '../Form/Form.js' 
 import './CharacterPage.css'
 // import { useParams } from 'react-router-dom'
 
@@ -16,14 +17,17 @@ const CharacterPage = ({chosenCharacterData, getImagePath}) => {
     wallJumpConverter()
 
     return (
-        <div>
-            <h1>Name</h1>
-            <img src={getImagePath}/>
+        <div className='char-data-container'>
+            <header className='char-header'>
+                <h1>{chosenCharacterData.name}</h1>
+                <img src={getImagePath}/>
+            </header>
             <p className="traits">Traits: {chosenCharacterData.guide}</p>
             <p className="tier">Tier Position: {chosenCharacterData.tierdata}</p>
-            <p className="fall-speed">Fall Speed: {chosenCharacterData.fallspeed}</p>
-            <p className="weight">Weight: {chosenCharacterData.weight}</p>
+            <p className="fall-speed">Fall Speed: {chosenCharacterData.fallspeed} fastest</p>
+            <p className="weight">Weight: {chosenCharacterData.weight} heaviest</p>
             <p className="walljump">Can Walljump: {walljumpStatus}</p>
+            <FormComponent charName={chosenCharacterData.name}/>
         </div>
     )
 }
