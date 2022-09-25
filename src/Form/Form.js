@@ -7,12 +7,14 @@ class FormComponent extends Component {
         super()
         this.state = {
             title: '',
-            body: ''
+            body: '',
+            whichChar: ''
         }
     }
 
     handleChange = event => {
         this.setState({[event.target.name]: event.target.value});
+        this.setState({whichChar: this.props.whichChar})
     }
 
 
