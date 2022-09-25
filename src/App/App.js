@@ -8,7 +8,7 @@ import { imageLinks } from '../Assets/images.js'
 // import CharacterData from '../CharacterData/CharacterData.js'
 // import Form from '../Form/Form.js'
 // import Card from '../Card/Card.js'
-// import Note from '../Note/Note.js'
+// import Notes from '../Note/Note.js'
 
 class App extends Component {
   constructor() {
@@ -18,12 +18,18 @@ class App extends Component {
       characterImage: '',
       allCharacterData: [], 
       chosenCharacterData: {},
-      allCharacterImages: null
+      allCharacterImages: null,
+      notes: []
     }
   }
 
   //things to pass:
   //the object that pertains
+
+
+  addNote = (newNote) => {
+    this.setState({notes: [...this.state.notes, newNote]});
+}
 
   getImagePath = () => {
     let image = this.state.allCharacterImages.find((link) => 
@@ -92,7 +98,12 @@ dataImageHelper = () => {
         </form>
         <Routes>
             <Route exact path='/' element={<App/>}/>
-            <Route exact path='/characters/:id' element={<CharacterPage chosenCharacterData={this.state.chosenCharacterData} getImagePath={this.state.characterImage}/>}/>
+            <Route 
+              exact path='/characters/:id' 
+              element={<CharacterPage 
+              chosenCharacterData={this.state.chosenCharacterData}
+              getImagePath={this.state.characterImage}/>}
+              addNote={this.addNote}/>
           </Routes>
     </main>) 
   }

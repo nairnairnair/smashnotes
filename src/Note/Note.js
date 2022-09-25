@@ -2,12 +2,20 @@ import React from 'react'
 import './Note.css';
 import Card from '../Card/Card.js'
 
-const Note = () => {
+const Notes = () => {
+
+    const noteCards = () => {
+        return (
+            <Card></Card>
+        )
+    }
+
+
     return (
         <div>
-            <Card></Card>
+            {noteCards}
         </div>
     )
 }
 
-export default Note
+export default Notes
