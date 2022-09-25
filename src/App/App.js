@@ -1,10 +1,10 @@
 import './App.css';
 import React, { Component } from 'react'
 import logo from '../Assets/Images/logo.png'
-import getCharacterData from '../APICalls/APICalls';
 import { Routes, Route, Link } from "react-router-dom"
 import dropdownData from '../CharacterData/dropdownData';
 import CharacterPage from '../CharacterPage/CharacterPage';
+import { imageLinks } from '../Assets/images.js'
 // import CharacterData from '../CharacterData/CharacterData.js'
 // import Form from '../Form/Form.js'
 // import Card from '../Card/Card.js'
@@ -14,15 +14,33 @@ class App extends Component {
   constructor() {
     super()
     this.state =  {
-      chosenCharacterID: ''
+      chosenCharacterID: '',
+      characterImage: '',
+      allCharacterData: [], 
+      allCharacterImages: null
     }
   }
 
-  componentDidMount = () => {
-    getCharacterData()
-    console.log('it worked')
-  } 
+  getImagePath = () => {
+    let image = this.state.allCharacterImages.find((link) => 
+    link.id == this.state.chosenCharacterID
+    )
+    console.log(image)
+  this.setState({characterImage: image.image})}
 
+  componentDidMount = () => {
+    fetch('https://fe-cors-proxy.herokuapp.com', {
+  headers: {
+    "Target-URL": "http://smashlounge.com/api/chars/all"
+  }
+})
+  .then(response => response.json())
+  .catch(error => console.error(error))
+  .then((data) => {this.setState({allCharacterData: data})})
+    console.log('it worked')
+    this.setState({allCharacterImages: imageLinks})
+  }
+  
   handleSelect = (event) => {
     this.setState({chosenCharacterID: event.target.value});
     console.log(this.state.chosenCharacterID)
@@ -48,17 +66,19 @@ formattedDropdownData = dropdownData.map(listItem => {
             <option disabled hidden>CHOOSE YOUR CHARACTER</option>
             {this.formattedDropdownData}
           </select>
-          <Link to='/${this.state.chosenCharacterID}'>
-            <button>Go!</button>
+          <Link to={`/characters/${this.state.chosenCharacterID}`}>
+            <button onClick={this.getImagePath}>Go!</button>
           </Link>
           <Routes>
             <Route exact path='/' element={<App/>}/>
-            <Route exact path='/${this.state.chosenCharacterID}' element={<CharacterPage/>}/>
+            <Route exact path='/characters/:id' element={<CharacterPage props={this.state.chosenCharacterID} getImagePath={this.state.characterImage}/>}/>
           </Routes>
         </form>
     </main>) 
   }
 }
+
+{/* <Route exact path="/rivers/:id" */}
 
 export default App;
 
@@ -67,3 +87,6 @@ export default App;
 //use 6 cause why not
 //us e navigation function which will take you to the route using interp id
 //
+
+//create array of images to import
+//set up fetch data to display in the screen for each character
