@@ -21,7 +21,7 @@ const CharacterPage = ({chosenCharacterData, getImagePath}) => {
 
     return (
         <div className='char-data-container'>
-        <Link to={`/smashnotes/`}>
+        <Link to={`/`}>
             <button name="home-button">Home</button>
         </Link>
             <header className='char-header'>
