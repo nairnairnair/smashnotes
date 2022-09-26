@@ -1,6 +1,7 @@
 import React from 'react'
 import FormComponent from '../Form/Form.js' 
 import './CharacterPage.css'
+import { Link } from 'react-router-dom'
 
 // import { useParams } from 'react-router-dom'
 
@@ -19,6 +20,9 @@ const CharacterPage = ({chosenCharacterData, getImagePath}) => {
 
     return (
         <div className='char-data-container'>
+        <Link to={`/`}>
+            <button>Home</button>
+        </Link>
             <header className='char-header'>
                 <h1>{chosenCharacterData.name}</h1>
                 <img src={getImagePath}/>

@@ -21,9 +21,6 @@ class App extends Component {
     }
   }
 
-  //things to pass:
-  //the object that pertains
-
   addNote = (newNote) => {
     this.setState({notes: [...this.state.notes, newNote]});
   }
@@ -100,7 +97,7 @@ dataImageHelper = () => {
           </Link>
         </form>
         <Routes>
-            <Route exact path='/' element={<App/>}/>
+            <Route exact path='/' element={<p>Choose a character to add notes on them!</p>}/>
             <Route 
               exact path='/characters/:id' 
               element={
@@ -113,20 +110,10 @@ dataImageHelper = () => {
                 <Notes notes={this.state.notes} deleteNote={this.deleteNote} currentWhichChar={this.state.chosenCharacterID}/>
               </div>
               }/>
+              <Route path="*" element={<p className='come-on-now'>Quit messing around with the URL! We both know whatever nonsense you just typed isn't a real page. Be a good user and navigate using the buttons.</p>} />
           </Routes>
     </main>) 
   }
 }
 
-{/* <Route exact path="/rivers/:id" */}
-
 export default App;
-
-//dynamic routing based on id
-//after your route do :id 
-//use 6 cause why not
-//us e navigation function which will take you to the route using interp id
-//
-
-//create array of images to import
-//set up fetch data to display in the screen for each character
