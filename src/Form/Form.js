@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import React, {Component} from 'react'
 import './Form.css';
 
@@ -60,6 +61,12 @@ class FormComponent extends Component {
             </div>
         )
     }
+}
+
+FormComponent.propTypes = {
+  addNote: PropTypes.func,
+  charName: PropTypes.any,
+  whichChar: PropTypes.any
 }
 
 export default FormComponent

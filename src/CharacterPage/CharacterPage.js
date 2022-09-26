@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import React from 'react'
 import FormComponent from '../Form/Form.js' 
 import './CharacterPage.css'
@@ -34,6 +35,18 @@ const CharacterPage = ({chosenCharacterData, getImagePath}) => {
             <p name="walljump" className="walljump">Can Walljump: {walljumpStatus}</p>
         </div>
     )
+}
+
+CharacterPage.propTypes = {
+  chosenCharacterData: PropTypes.shape({
+    fallspeed: PropTypes.any,
+    guide: PropTypes.any,
+    name: PropTypes.any,
+    tierdata: PropTypes.any,
+    walljump: PropTypes.string,
+    weight: PropTypes.any
+  }),
+  getImagePath: PropTypes.any
 }
 
 export default CharacterPage

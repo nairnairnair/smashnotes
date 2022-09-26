@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import React from 'react'
 import './Card.css'
 
@@ -9,6 +10,13 @@ const Card = ({title, body, id, deleteNote}) => {
             <button name="delete-button" onClick={() => deleteNote(id)}>Delete Note</button>
         </div>
     )
+}
+
+Card.propTypes = {
+  body: PropTypes.any,
+  deleteNote: PropTypes.func,
+  id: PropTypes.any,
+  title: PropTypes.any
 }
 
 export default Card
