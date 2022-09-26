@@ -97,7 +97,7 @@ dataImageHelper = () => {
           </Link>
         </form>
         <Routes>
-            <Route exact path='/smashnotes' element={<p name="home-notes-message">Choose a character to add notes on them!</p>}/>
+            <Route exact path='/smashnotes/' element={<p name="home-notes-message">Choose a character to add notes on them!</p>}/>
             <Route 
               exact path='smashnotes/characters/:id' 
               element={
@@ -113,7 +113,7 @@ dataImageHelper = () => {
               <Route path="*" element={
                 <div>
                   <p className='come-on-now'>Quit messing around with the URL! We both know whatever nonsense you just typed isn't a real page. Be a good user and navigate using the buttons. Here's one for you to try:</p>
-                  <Link to={`/smashnotes`}>
+                  <Link to={`/smashnotes/`}>
                     <button>Home</button>
                   </Link>
                 </div>
