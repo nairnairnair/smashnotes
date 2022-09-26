@@ -88,16 +88,16 @@ dataImageHelper = () => {
     <main className='main'>
       <img className='logo' src={logo} alt='SMASHNOTES'/>
         <form>
-          <select onChange={(event) => this.handleSelect(event)}>
-            <option disabled hidden>CHOOSE YOUR CHARACTER</option>
+          <select name="character-select" defaultValue="CHOOSE YOUR CHARACTER" onChange={(event) => this.handleSelect(event)}>
+            <option hidden disabled>CHOOSE YOUR CHARACTER</option>
             {this.formattedDropdownData}
           </select>
           <Link to={`/characters/${this.state.chosenCharacterID}`}>
-            <button onClick={this.dataImageHelper}>Go!</button>
+            <button name="char-select-button" onClick={this.dataImageHelper}>Go!</button>
           </Link>
         </form>
         <Routes>
-            <Route exact path='/' element={<p>Choose a character to add notes on them!</p>}/>
+            <Route exact path='/' element={<p name="home-notes-message">Choose a character to add notes on them!</p>}/>
             <Route 
               exact path='/characters/:id' 
               element={
@@ -110,7 +110,14 @@ dataImageHelper = () => {
                 <Notes notes={this.state.notes} deleteNote={this.deleteNote} currentWhichChar={this.state.chosenCharacterID}/>
               </div>
               }/>
-              <Route path="*" element={<p className='come-on-now'>Quit messing around with the URL! We both know whatever nonsense you just typed isn't a real page. Be a good user and navigate using the buttons.</p>} />
+              <Route path="*" element={
+                <div>
+                  <p className='come-on-now'>Quit messing around with the URL! We both know whatever nonsense you just typed isn't a real page. Be a good user and navigate using the buttons. Here's one for you to try:</p>
+                  <Link to={`/`}>
+                    <button>Home</button>
+                  </Link>
+                </div>
+                } />
           </Routes>
     </main>) 
   }

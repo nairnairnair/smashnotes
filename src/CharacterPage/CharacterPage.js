@@ -24,14 +24,14 @@ const CharacterPage = ({chosenCharacterData, getImagePath}) => {
             <button>Home</button>
         </Link>
             <header className='char-header'>
-                <h1>{chosenCharacterData.name}</h1>
-                <img src={getImagePath}/>
+                <h1 name="char-name">{chosenCharacterData.name}</h1>
+                <img name='char-image' src={getImagePath}/>
             </header>
-            <p className="traits">Traits: {chosenCharacterData.guide}</p>
-            <p className="tier">Tier Position: {chosenCharacterData.tierdata}</p>
-            <p className="fall-speed">Fall Speed: {chosenCharacterData.fallspeed} fastest</p>
-            <p className="weight">Weight: {chosenCharacterData.weight} heaviest</p>
-            <p className="walljump">Can Walljump: {walljumpStatus}</p>
+            <p name="traits" className="traits">Traits: {chosenCharacterData.guide}</p>
+            <p name="tier" className="tier">Tier Position: {chosenCharacterData.tierdata}</p>
+            <p name="fall-speed" className="fall-speed">Fall Speed: {chosenCharacterData.fallspeed} fastest</p>
+            <p name="weight" className="weight">Weight: {chosenCharacterData.weight} heaviest</p>
+            <p name="walljump" className="walljump">Can Walljump: {walljumpStatus}</p>
         </div>
     )
 }
