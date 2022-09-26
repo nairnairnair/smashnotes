@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/smashnotes/static/css/main.105777aa.css",
+    "main.js": "/smashnotes/static/js/main.89f73006.js",
+    "static/media/logo.png": "/smashnotes/static/media/logo.dc0513432d555be5ac2f.png",
+    "index.html": "/smashnotes/index.html",
+    "main.105777aa.css.map": "/smashnotes/static/css/main.105777aa.css.map",
+    "main.89f73006.js.map": "/smashnotes/static/js/main.89f73006.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.105777aa.css",
+    "static/js/main.89f73006.js"
+  ]
+}
