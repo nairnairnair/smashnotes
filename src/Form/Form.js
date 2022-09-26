@@ -50,7 +50,8 @@ class FormComponent extends Component {
                         onChange={event => this.handleChange(event)}>
                     </textarea>
                     <button 
-                        className='note-submit' 
+                        className='note-submit'
+                        name='note-submit' 
                         onClick={event => this.submitNote(event)}>
                         Submit
                     </button>
