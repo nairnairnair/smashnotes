@@ -89,7 +89,7 @@ dataImageHelper = () => {
       <img className='logo' src={logo} alt='SMASHNOTES'/>
         <form>
           <select name="character-select" defaultValue="CHOOSE YOUR CHARACTER" onChange={(event) => this.handleSelect(event)}>
-            <option hidden disabled>CHOOSE YOUR CHARACTER</option>
+            <option hidden>CHOOSE YOUR CHARACTER</option>
             {this.formattedDropdownData}
           </select>
           <Link to={`/characters/${this.state.chosenCharacterID}`}>
